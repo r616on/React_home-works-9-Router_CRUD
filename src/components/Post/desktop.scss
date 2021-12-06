@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.Post {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+}
+.Post__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.title__ava {
+  max-width: 50px;
+  width: 100%;
+  margin-right: 20px;
+}
+.title__text {
+}
+.name {
+  margin-bottom: 7px;
+}
+.status {
+}
+.Post__body {
+  margin-left: 20px;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.Post-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.Post-footer__item {
+  display: flex;
+  align-items: center;
+}
+.material-icons {
+  margin-right: 10px;
+}
+.like {
+}
+
+.comment {
+}
