@@ -1,11 +1,27 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
+.Post-Link {
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
 .Post {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   border: 1px solid black;
   border-radius: 10px;
   padding: 15px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.Post-Link:last-child {
+  margin-bottom: 0px;
 }
 .Post__title {
   display: flex;
