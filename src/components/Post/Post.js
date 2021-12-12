@@ -25,11 +25,15 @@ const Post = (props) => {
             Комментировать
           </div>
         </div>
+        {props.children}
       </div>
     </Link>
   );
 };
 
-Post.propTypes = {};
+Post.propTypes = {
+  id: PropTypes.string,
+  body: PropTypes.string,
+};
 
 export default Post;

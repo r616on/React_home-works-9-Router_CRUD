@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./desktop.scss";
-import { v4 as uuidv4 } from "uuid";
 
 const initForm = { textarea: "" };
 
-function NewPost({ url }) {
+function NewPost(props) {
+  const { url, edit, body, id, setEdit } = props;
   const navigate = useNavigate();
   const [form, setForm] = useState(initForm);
+
+  useEffect(() => {
+    if (body) {
+      setForm({ textarea: body });
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const handleChange = ({ target }) => {
     const name = target.name;
@@ -15,6 +22,26 @@ function NewPost({ url }) {
     setForm((prevForm) => {
       return { ...prevForm, [name]: value };
     });
+  };
+
+  const handleEdit = (evt) => {
+    evt.preventDefault();
+    console.log(url);
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        id: id,
+        content: form.textarea,
+      }),
+    })
+      .then((resp) => {
+        if (resp.status === 204) {
+          setEdit(false);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const handleSubmit = (evt) => {
@@ -57,7 +84,10 @@ function NewPost({ url }) {
           </Link>
         </span>
       </div>
-      <form className="NewPost-form" onSubmit={handleSubmit}>
+      <form
+        className="NewPost-form"
+        onSubmit={edit ? handleEdit : handleSubmit}
+      >
         <textarea
           id="new"
           name="textarea"
@@ -67,9 +97,8 @@ function NewPost({ url }) {
         />
         <input
           className="material-icons send"
-          value="send"
           type="submit"
-          value="Опубликовать"
+          value={edit ? "Cоранить" : "Опубликовать"}
         />
       </form>
     </div>

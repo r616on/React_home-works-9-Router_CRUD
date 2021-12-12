@@ -36,14 +36,16 @@
   font-size: 16px;
   cursor: pointer;
 }
-
+.material-icons {
+  line-height: normal;
+}
 .send {
   text-align: right;
   padding: 5px;
-  border: 1px solid black;
+  // border: 1px solid black;
   background-color: rgb(128, 128, 219);
   color: white;
-  line-height: normal;
+  line-height: normal !important;
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 5px;

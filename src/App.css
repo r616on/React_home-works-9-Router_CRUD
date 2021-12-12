@@ -96,3 +96,6 @@ h6 {
   max-width: 100%;
   width: 100%;
 }
+.material-icons {
+  line-height: normal;
+}
